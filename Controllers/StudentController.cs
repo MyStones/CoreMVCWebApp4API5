@@ -75,6 +75,11 @@ namespace CoreMVCWebApp4API5.Controllers
 
         public ActionResult AddStudent()
         {
+            // Call the GetGradeList method of the API
+            List<int> gl = GetGradeList();
+            // Make a SelectList of the Gradelist and store it in a ViewBag
+            ViewBag.grdList = new SelectList(gl);
+	        
             return View();
         }
 
