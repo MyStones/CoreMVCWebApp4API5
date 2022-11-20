@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CoreMVCWebApp4API5.Models.Student>
+
+@{
+    ViewData["Title"] = "GetStudents";
+}
+
+<h1>GetStudents</h1>
+
+<p>
+    <a asp-action="AddStudent">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GradeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MailingAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailingAddress)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditStudent", new {  id=item.StudentId }) |
+                @Html.ActionLink("Details", "DetailsStudent", new {  id=item.StudentId }) |
+                @Html.ActionLink("Delete", "DeleteStudent", new { id=item.StudentId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
